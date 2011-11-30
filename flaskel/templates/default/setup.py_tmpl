@@ -1,0 +1,25 @@
+# -*- coding: utf-8 -*-
+from setuptools import setup, find_packages
+
+setup(
+	name="${package}",
+	version="${version}",
+	description="${description}",
+	author="${author}",
+	author_email="${author_email}",
+	url="${url}",
+	install_requires=[
+		"Flask",
+		"Flask-SQLAlchemy",
+		"SQLAlchemy",
+		"Flask-Mail",
+		"Flask-Script",
+		#"flup",
+		#"nose",
+		#"psycopg2",
+	],
+	scripts=["manage.py"],
+	zip_safe=False,
+	packages=find_packages(),
+	include_package_data=True
+)

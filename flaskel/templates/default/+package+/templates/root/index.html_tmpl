@@ -1,0 +1,5 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>Welcome to ${package.capitalize()} !!</h1>
+<p>A freshly Flaskel bootstraped project</p>
+{% endblock %}

@@ -1,0 +1,2 @@
+recursive-include flaskel/templates/ *
+recursive-include flaskel/scripts/ *

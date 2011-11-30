@@ -1,0 +1,31 @@
+from flask import Flask
+from flaskext.sqlalchemy import SQLAlchemy
+
+import os
+
+db = SQLAlchemy()
+
+def create_app(config=None, configobj=None, debug=None):
+	app = Flask(__name__)
+
+	# Configure application
+	app.config.from_object('${package}.config.defaults')
+	if config is not None:
+		app.config.from_pyfile(os.path.abspath(config))
+	if configobj is not None:
+		app.config.from_object(configobj)
+
+	if debug is not None:
+		app.debug = debug
+
+	db.init_app(app)
+
+	@app.after_request
+	def commit_on_request(response):
+		if 200 <= response.status_code < 400: 
+			db.session.commit()
+		return response
+	from ${package}.controllers import root
+	app.register_blueprint(root)
+	return app
+

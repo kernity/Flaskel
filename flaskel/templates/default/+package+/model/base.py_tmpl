@@ -1,0 +1,19 @@
+from sqlalchemy import ForeignKey, Column
+from sqlalchemy.orm import *
+from sqlalchemy.types import *
+from sqlalchemy import sql
+
+from datetime import datetime, timedelta
+
+from ${package} import db
+
+#class User(db.Model): 
+#	__tablename__ = 'users'
+#
+#	id            = Column(Integer, primary_key=True)
+#	firstname     = Column(Unicode(255), nullable=False)
+#	lastname      = Column(Unicode(255), nullable=False)
+#	email         = Column(Unicode(255), nullable=False, unique=True)
+#	created_at    = Column(DateTime, default=datetime.utcnow)
+#
+#	Write here your methods

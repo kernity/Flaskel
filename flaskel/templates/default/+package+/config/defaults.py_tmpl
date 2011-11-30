@@ -1,0 +1,52 @@
+SQLALCHEMY_DATABASE_URI = "sqlite:///test.db"
+
+BASE_URL = "http://127.0.0.1:5000"
+SECRET_KEY = "S3cr3t"
+
+LOGGING = """
+[loggers]
+keys=root,access,werkzeug,flask,${package}
+
+[handlers]
+keys=console
+
+[formatters]
+keys=default
+
+[logger_root]
+handlers=console
+
+[logger_access]
+level=INFO
+handlers=console
+propagate=0
+qualname=access
+
+[logger_werkzeug]
+level=INFO
+handlers=console
+propagate=0
+qualname=werkzeug
+
+[logger_flask]
+level=DEBUG
+handlers=console
+propagate=0
+qualname=flask
+
+[logger_${package}]
+level=DEBUG
+handlers=console
+propagate=0
+qualname=${package}
+
+[handler_console]
+class=StreamHandler
+formatter=default
+args=(sys.stdout,)
+
+[formatter_default]
+format=%(asctime)s - %(levelname)8s - %(name)30s - %(message)s
+class=logging.Formatter
+"""
+
