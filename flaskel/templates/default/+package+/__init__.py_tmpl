@@ -1,7 +1,9 @@
 from flask import Flask
-from flaskext.sqlalchemy import SQLAlchemy
+from flask.ext.sqlalchemy import SQLAlchemy
 
 import os
+
+from ${package} import initializers
 
 db = SQLAlchemy()
 
@@ -19,6 +21,7 @@ def create_app(config=None, configobj=None, debug=None):
 		app.debug = debug
 
 	db.init_app(app)
+	initializers.init_app(app)
 
 	@app.after_request
 	def commit_on_request(response):
